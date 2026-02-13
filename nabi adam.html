@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisah Nabi Adam | Sang Manusia Pertama</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0b1c2f 0%, #1b3b4f 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ornamen bintang samar */
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" opacity="0.15"><circle cx="30" cy="20" r="1.5" fill="white"/><circle cx="80" cy="60" r="1.2" fill="white"/><circle cx="150" cy="15" r="1" fill="white"/><circle cx="170" cy="80" r="1.8" fill="white"/><circle cx="10" cy="90" r="1" fill="white"/><circle cx="120" cy="40" r="1.3" fill="white"/><circle cx="60" cy="85" r="1" fill="white"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .main-card {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 140, 0.25);
+            border-radius: 3.5rem 3.5rem 2.5rem 2.5rem;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(240, 200, 120, 0.1) inset;
+            padding: 2rem 2rem 3rem;
+            position: relative;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        /* header dengan iluminasi */
+        .header-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .header-title h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f9e3a0, #ffc88a, #dab07e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            letter-spacing: 2px;
+            word-break: break-word;
+        }
+
+        .header-title h1 i {
+            color: #f5cb7e;
+            margin: 0 10px;
+            font-size: 2.8rem;
+            filter: drop-shadow(0 0 8px gold);
+        }
+
+        .sub {
+            color: #c6e2ff;
+            font-size: 1.3rem;
+            font-style: italic;
+            background: rgba(0, 30, 50, 0.5);
+            display: inline-block;
+            padding: 0.4rem 2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            margin-top: 10px;
+            border: 1px solid #ffe1a0;
+        }
+
+        /* grid gambar dan info */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 750px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+            .header-title h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* kiri: gambar karosel mini / collage */
+        .visual-side {
+            background: rgba(10, 25, 35, 0.7);
+            border-radius: 2.5rem;
+            padding: 1.2rem;
+            border: 1px solid rgba(255, 200, 120, 0.5);
+            box-shadow: 0 15px 30px -10px black;
+        }
+
+        .image-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .main-img {
+            width: 100%;
+            height: 260px;
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 3px solid #e4b370;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            transition: transform 0.25s ease;
+        }
+
+        .main-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .main-img:hover img {
+            transform: scale(1.07);
+        }
+
+        .thumb-grid {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .thumb-item {
+            width: 90px;
+            height: 80px;
+            border-radius: 1.4rem;
+            border: 2px solid #ffd966;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.85;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px black;
+        }
+
+        .thumb-item:hover {
+            opacity: 1;
+            transform: scale(1.06);
+            border-color: #ffb347;
+        }
+
+        .thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* sisi kanan: narasi */
+        .narration {
+            background: rgba(0, 15, 25, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 2rem 2rem;
+            border-radius: 2.5rem;
+            border: 1px solid #ffcf9a;
+            box-shadow: 0 20px 30px -5px #00000080;
+            color: #f0f4f0;
+            line-height: 1.7;
+            font-size: 1.15rem;
+        }
+
+        .narration h2 {
+            color: #ffe5a3;
+            border-left: 8px solid #e8b87b;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+            font-size: 2rem;
+            text-shadow: 2px 2px 3px black;
+        }
+
+        .narration i {
+            color: #ffd966;
+            margin-right: 6px;
+        }
+
+        .narration p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, #ffd96630, #b7832f30);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #ffdb9d;
+            display: inline-block;
+            margin: 1rem 0 0.2rem;
+        }
+
+        /* timeline / fakta menarik */
+        .fact-section {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .fact-card {
+            background: rgba(35, 55, 70, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 1.5rem 1rem;
+            border-radius: 2rem;
+            flex: 1 1 200px;
+            border: 1px solid #bb9b70;
+            text-align: center;
+            color: #fae6cf;
+            transition: 0.2s;
+            box-shadow: 0 10px 15px -5px #00000080;
+        }
+
+        .fact-card:hover {
+            background: rgba(55, 80, 100, 0.9);
+            transform: translateY(-8px);
+            border-color: #f6c97e;
+        }
+
+        .fact-card i {
+            font-size: 2.5rem;
+            color: gold;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-card h3 {
+            font-size: 1.3rem;
+            border-bottom: 2px dotted #d4a373;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .fact-card p {
+            font-size: 1rem;
+        }
+
+        /* tombol interaktif dan JS */
+        .interactive-area {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2.5rem 0 0.5rem;
+        }
+
+        .btn {
+            background: linear-gradient(to bottom, #2e4c3e, #1a352a);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f1e3c5;
+            border: 1px solid #c9a063;
+            box-shadow: 0 7px 0 #0e251e, 0 10px 20px black;
+            cursor: pointer;
+            transition: all 0.08s linear;
+            display inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn i {
+            font-size: 1.5rem;
+            color: #fad47a;
+        }
+
+        .btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 2px 0 #0e251e, 0 8px 15px black;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to bottom, #3f6b57, #23523e);
+            border-color: #efc482;
+        }
+
+        #messageBox {
+            background: #13242e;
+            border-radius: 60px;
+            padding: 1rem 2rem;
+            font-size: 1.4rem;
+            color: #ffdbb5;
+            border: 1px solid #e4ae6a;
+            text-align: center;
+            margin-top: 1.8rem;
+            box-shadow: inset 0 0 15px #0000007a, 0 5px 10px black;
+            transition: 0.2s;
+            min-height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        #messageBox i {
+            font-size: 2rem;
+            color: #ffe087;
+        }
+
+        footer {
+            margin-top: 1.5rem;
+            color: #ced0c0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            z-index: 10;
+        }
+
+        /* gambar online (unsplash /  sumber bebas) */
+        /* semua gambar dari pexels/unsplash dengan subjek adam/hawa/surga */
+    </style>
+</head>
+<body>
+    <div class="main-card">
+        <div class="header-title">
+            <h1>
+                <i class="fas fa-feather-alt"></i> 
+                Kisah Nabi Adam 
+                <i class="fas fa-dove"></i>
+            </h1>
+            <div class="sub">Manusia pertama & khalifah di bumi</div>
+        </div>
+
+        <!-- Grid gambar + narasi -->
+        <div class="story-grid">
+            <!-- sisi visual interaktif -->
+            <div class="visual-side">
+                <div class="image-showcase">
+                    <div class="main-img" id="mainImageContainer">
+                        <img id="displayImg" src="https://images.pexels.com/photos/207529/pexels-photo-207529.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nabi Adam - Cahaya Surga">
+                    </div>
+                    <div class="thumb-grid" id="thumbGrid">
+                        <!-- thumbnail 1 (Adam & Hawa) -->
+                        <div class="thumb-item" data-img="https://images.pexels.com/photos/207529/pexels-photo-207529.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <img src="https://images.pexels.com/photos/207529/pexels-photo-207529.jpeg?auto=compress&cs=tinysrgb&w=150" alt="thumb taman">
+                        </div>
+                        <!-- thumbnail 2 (pohon / surga) -->
+                        <div class="thumb-item" data-img="https://images.pexels.com/photos/1314552/pexels-photo-1314552.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <img src="https://images.pexels.com/photos/1314552/pexels-photo-1314552.jpeg?auto=compress&cs=tinysrgb&w=150" alt="pohon surga">
+                        </div>
+                        <!-- thumbnail 3 (bumi/ padang) -->
+                        <div class="thumb-item" data-img="https://images.pexels.com/photos/355747/pexels-photo-355747.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <img src="https://images.pexels.com/photos/355747/pexels-photo-355747.jpeg?auto=compress&cs=tinysrgb&w=150" alt="bumi padang">
+                        </div>
+                        <!-- thumbnail 4 (cahaya/ langit) -->
+                        <div class="thumb-item" data-img="https://images.pexels.com/photos/912110/pexels-photo-912110.jpeg?auto=compress&cs=tinysrgb&w=600">
+                            <img src="https://images.pexels.com/photos/912110/pexels-photo-912110.jpeg?auto=compress&cs=tinysrgb&w=150" alt="langit ilahi">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- teks cerita -->
+            <div class="narration">
+                <h2><i class="fas fa-book-open"></i> Penciptaan & Keistimewaan</h2>
+                <p><i class="fas fa-angle-right"></i> Allah menciptakan Nabi Adam <strong>dari tanah liat kering</strong> (salsal) dan meniupkan ruh-Nya. Ia diajari nama-nama benda (al-asma') sehingga melebihi malaikat. Kemudian Allah memerintahkan malaikat bersujud hormat, semua patuh kecuali iblis yang sombong.</p>
+                <p><i class="fas fa-angle-right"></i> Adam dan istrinya Hawa ditempatkan di surga. Mereka diberi nikmat segalanya, namun dilarang mendekati satu pohon. Setan menggoda mereka hingga tergelincir, lalu keduanya diturunkan ke bumi sebagai ujian.</p>
+                <p><i class="fas fa-angle-right"></i> Di bumi, Adam bertaubat dengan kalimat yang diajarkan Allah, dan taubatnya diterima. Beliau menjadi nabi pertama yang mengajarkan tauhid dan cara bercocok tanam, serta membangun ka'bah. <span class="highlight"><i class="fas fa-star"></i> Hikmah: taubat & perjuangan</span></p>
+            </div>
+        </div>
+
+        <!-- 3 fakta card -->
+        <div class="fact-section">
+            <div class="fact-card">
+                <i class="fas fa-globe-asia"></i>
+                <h3>Khalifah Bumi</h3>
+                <p>Adam ditunjuk sebagai pemimpin dan pengelola bumi pertama. Ilmu dan amal menjadi bekalnya.</p>
+            </div>
+            <div class="fact-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Diciptakan dari Tanah</h3>
+                <p>4 unsur tanah: manis, asin, hitam, putih — melambangkan sifat keturunan manusia.</p>
+            </div>
+            <div class="fact-card">
+                <i class="fas fa-dragon"></i>
+                <i class="fas fa-apple-alt" style="font-size:1.8rem;"></i>
+                <h3>Ujian Pohon Khuldi</h3>
+                <p>Bukan buah tertentu, tapi larangan sebagai ujian ketaatan. Adam dan Hawa sama-sama bertaubat.</p>
+            </div>
+        </div>
+
+        <!-- area interaktif tombol dan pesan -->
+        <div class="interactive-area">
+            <button class="btn" id="taubatBtn"><i class="fas fa-pray"></i> Taubat Adam</button>
+            <button class="btn" id="hawaBtn"><i class="fas fa-female"></i> Tentang Hawa</button>
+            <button class="btn" id="cahayaBtn"><i class="fas fa-sun"></i> Cahaya Ilmu</button>
+        </div>
+
+        <!-- kotak pesan dinamis -->
+        <div id="messageBox">
+            <i class="fas fa-star-and-crescent"></i>  
+            <span id="dynamicText">Klik tombol untuk mengetahui lebih dalam...</span>
+        </div>
+
+        <!-- kutipan Quran (ringan) -->
+        <footer>
+            <i class="fas fa-quran"></i> “Sesungguhnya Allah memilih Adam, Nuh, keluarga Ibrahim dan keluarga Imran melebihi segala umat.” (QS. Ali Imran 33)
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            // --- Ganti gambar utama via thumbnail ---
+            const thumbItems = document.querySelectorAll('.thumb-item');
+            const displayImg = document.getElementById('displayImg');
+
+            thumbItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const newSrc = this.dataset.img; // ambil dari data-img
+                    if (newSrc) {
+                        displayImg.src = newSrc;
+                        // sedikit efek fade
+                        displayImg.style.transition = 'opacity 0.3s';
+                        displayImg.style.opacity = '0.6';
+                        setTimeout(() => { displayImg.style.opacity = '1'; }, 150);
+                    }
+                });
+            });
+
+            // --- Tombol interaktif dan pesan dinamis ---
+            const taubatBtn = document.getElementById('taubatBtn');
+            const hawaBtn = document.getElementById('hawaBtn');
+            const cahayaBtn = document.getElementById('cahayaBtn');
+            const dynamicSpan = document.getElementById('dynamicText');
+            const msgBox = document.getElementById('messageBox');
+
+            // fungsi ubah pesan dengan efek
+            function setMessage(text, iconClass = 'fa-star-and-crescent') {
+                dynamicSpan.innerText = text;
+                // ganti icon pertama di messagebox
+                const icon = msgBox.querySelector('i');
+                if (icon) {
+                    icon.className = 'fas ' + iconClass;  // misal 'fas fa-hand-sparkles'
+                }
+                // kilat
+                msgBox.style.backgroundColor = '#1d3d4a';
+                setTimeout(() => msgBox.style.backgroundColor = '#13242e', 200);
+            }
+
+            taubatBtn.addEventListener('click', () => {
+                setMessage('Allah menerima taubat Adam dengan kalimat "Rabbanā zhalamnā anfusanā..." (QS. Al-A’raf 23).', 'fa-hand-sparkles');
+            });
+
+            hawaBtn.addEventListener('click', () => {
+                setMessage('Hawa (Hawwa) diciptakan dari tulang rusuk Adam. Bersama mereka turun ke bumi dan menjadi pasangan abadi.', 'fa-venus');
+            });
+
+            cahayaBtn.addEventListener('click', () => {
+                setMessage('Adam diajarkan langsung oleh Asmaul Husna. Beliau adalah “Abu al-Basyar” (bapak manusia) dan pembawa risalah.', 'fa-lightbulb');
+            });
+
+            // pesan pertama dengan icon default
+            // (sudah ada)
+        })();
+    </script>
+    <!-- optional tambahan smooth transition untuk gambar utama -->
+    <style>
+        #displayImg {
+            transition: transform 0.4s ease, opacity 0.25s;
+        }
+        .main-card, .btn, .fact-card, .narration {
+            transition: all 0.2s ease-out;
+        }
+        .thumb-item img {
+            filter: brightness(0.95);
+        }
+        .thumb-item:hover img {
+            filter: brightness(1.1);
+        }
+    </style>
+</body>
+</html>
