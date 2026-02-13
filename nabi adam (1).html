@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kisah Nabi Adam • Manusia Pertama</title>
+  <!-- Font Awesome 5 (icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0efe7 0%, #e6e2d7 100%);
+      color: #2e2a28;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: rgba(255, 251, 240, 0.85);
+      backdrop-filter: blur(3px);
+      border-radius: 3.5rem 3.5rem 2.5rem 2.5rem;
+      box-shadow: 0 30px 45px -20px rgba(80, 50, 20, 0.5),
+                  inset 0 1px 4px rgba(255, 245, 215, 0.8);
+      overflow: hidden;
+      border: 1px solid #d8cbad;
+    }
+
+    /* header dengan nuansa tanah/ surga */
+    .hero {
+      background: linear-gradient(112deg, #2b5e3b 0%, #3f7845 40%, #b89b6b 100%);
+      padding: 3rem 2rem 2.5rem 2rem;
+      text-align: center;
+      color: #fef9e6;
+      border-bottom: 6px solid #ccb38b;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "⚲";
+      font-size: 8rem;
+      opacity: 0.1;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+      transform: rotate(15deg);
+      color: #ffffd0;
+      font-weight: bold;
+    }
+
+    .hero::after {
+      content: "🌿🌺";
+      font-size: 3rem;
+      opacity: 0.25;
+      position: absolute;
+      bottom: 5px;
+      right: 20px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-shadow: 3px 3px 0 #1b4a2a;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero .sub {
+      font-size: 1.5rem;
+      font-style: italic;
+      background: rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      padding: 0.3rem 2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border: 1px solid #ebdbaa;
+    }
+
+    .hero .sub i {
+      margin: 0 8px;
+    }
+
+    /* Navigasi dalam halaman */
+    .nav-symbolic {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      background: #e9dbc4;
+      padding: 1rem 2rem;
+      border-bottom: 2px solid #b79f79;
+    }
+
+    .nav-symbolic a {
+      color: #2d4f2a;
+      font-weight: 600;
+      text-decoration: none;
+      background: #fff7e3;
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      border: 1px solid #b69455;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .nav-symbolic a:hover {
+      background: #b48c54;
+      color: white;
+      border-color: #523a1f;
+      transform: scale(1.03);
+    }
+
+    /* konten utama */
+    .content {
+      padding: 2.5rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #2c5e2c;
+      border-left: 10px solid #c9a569;
+      padding-left: 1.2rem;
+      margin: 2rem 0 1.5rem 0;
+      text-shadow: 0 2px 3px rgba(160, 130, 70, 0.3);
+    }
+
+    .section-title i {
+      color: #a7773a;
+      margin-right: 12px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: #fffcf0;
+      border-radius: 2rem 2rem 2rem 2rem;
+      border: 1px solid #dac29c;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 12px 18px -8px #ad9a7b;
+      transition: all 0.15s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #a5834e;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      background: #c1ab82;
+      color: #2e401f;
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 2rem 0 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      border: 2px solid #ffe1aa;
+    }
+
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: #2a552a;
+      border-bottom: 2px dashed #bc9b64;
+      padding-bottom: 0.4rem;
+    }
+
+    .card p, .card ul {
+      color: #3f362c;
+      font-size: 1.05rem;
+    }
+
+    .card ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .card li i {
+      color: #a1662f;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .timeline {
+      background: #ebddc9;
+      padding: 1.8rem;
+      border-radius: 3rem 1rem 3rem 1rem;
+      border: 2px solid #bb9e70;
+      margin: 2rem 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .timeline-badge {
+      background: #7e9f6b;
+      color: white;
+      font-weight: bold;
+      min-width: 70px;
+      text-align: center;
+      padding: 0.3rem 0.1rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      box-shadow: 0 6px 0 #416b38;
+    }
+
+    .timeline-content {
+      background: #fef8e7;
+      padding: 0.8rem 1.3rem;
+      border-radius: 20px 20px 20px 5px;
+      border-left: 6px solid #b58d4f;
+      flex: 1;
+    }
+
+    .timeline-content strong {
+      color: #386035;
+      font-size: 1.2rem;
+    }
+
+    /* kutipan */
+    .quote-block {
+      background: #d6c29d;
+      padding: 2rem;
+      border-radius: 3rem 0 3rem 0;
+      margin: 2.5rem 0;
+      color: #1f3d1f;
+      font-size: 1.3rem;
+      font-style: italic;
+      border: 3px solid #f8e1b0;
+      box-shadow: inset 0 0 0 4px #fcf2d7;
+      text-align: center;
+    }
+
+    .quote-block i {
+      font-size: 2rem;
+      color: #4b6e3b;
+      margin: 0 1rem;
+    }
+
+    .footer {
+      background: #3f593a;
+      color: #eedbba;
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 1.1rem;
+      border-top: 6px solid #ab8d59;
+    }
+
+    .footer a {
+      color: #ffecb3;
+      text-decoration: none;
+      border-bottom: 1px dotted;
+    }
+
+    .footer a:hover {
+      color: white;
+    }
+
+    /* hiasan */
+    .motif-line {
+      height: 12px;
+      background: repeating-linear-gradient(45deg, #b69455, #b69455 10px, #ecd59b 10px, #ecd59b 20px);
+      margin: 1.2rem 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 3rem; }
+      .hero .sub { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO: Adam, manusia pertama -->
+  <div class="hero">
+    <h1>نبي آدم</h1>
+    <h1>Nabi Adam</h1>
+    <div class="sub"><i class="fas fa-feather-alt"></i> Bapak umat manusia <i class="fas fa-feather-alt"></i></div>
+    <p style="margin-top: 1rem; font-size: 1.3rem; opacity: 0.9;">Khalifah pertama di muka bumi</p>
+  </div>
+
+  <!-- quick links (simbolis) -->
+  <div class="nav-symbolic">
+    <a href="#penciptaan"><i class="fas fa-praying-hands"></i> Penciptaan</a>
+    <a href="#surga"><i class="fas fa-tree"></i> Surga & Hawa</a>
+    <a href="#dosa"><i class="fas fa-apple-alt"></i> Kesalahan</a>
+    <a href="#bumi"><i class="fas fa-globe-asia"></i> Turun ke Bumi</a>
+    <a href="#hikmah"><i class="fas fa-book-open"></i> Hikmah</a>
+  </div>
+
+  <!-- KONTEN UTAMA -->
+  <div class="content">
+
+    <!-- pengantar singkat -->
+    <div class="quote-block">
+      <i class="fas fa-quote-right"></i> Dialah yang menciptakan kamu dari jiwa yang satu (Adam) dan darinya Dia menciptakan pasangannya ... (QS. Al-A’raf: 189) <i class="fas fa-quote-left"></i>
+    </div>
+
+    <!-- Penciptaan Adam -->
+    <h2 id="penciptaan" class="section-title"><i class="fas fa-seedling"></i> Penciptaan dari Tanah</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-mountain"></i></div>
+        <h3>Tanah liat</h3>
+        <p>Allah menciptakan Adam dari <strong>tanah kering seperti tembikar</strong> (QS Ar-Rahman 14). Tanah dikumpulkan dari seluruh penjuru bumi, maka anak cucunya pun beragam warna dan sifat.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-dragon"></i></div>
+        <h3>Ruh ditiupkan</h3>
+        <p>Setelah sempurna bentuknya, Allah meniupkan ruh ciptaan-Nya. Adam pun menjadi makhluk hidup yang mulia, dan para malaikat diperintahkan bersujud menghormatinya.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-crown"></i></div>
+        <h3>Khalifah</h3>
+        <p>Sebelum penciptaan, malaikat bertanya, “Mengapa Engkau hendak menjadikan khalifah yang akan berbuat kerusakan?” Allah menjawab, “Aku tahu apa yang tidak kamu ketahui.” (QS Al-Baqarah 30)</p>
+      </div>
+    </div>
+
+    <!-- Hawa dan surga -->
+    <h2 id="surga" class="section-title"><i class="fas fa-dove"></i> Hawa & kehidupan di surga</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-badge"><i class="fas fa-female"></i> Hawa</div>
+        <div class="timeline-content"><strong>Dari tulang rusuk</strong> — Allah menciptakan pasangan untuk Adam, Hawa (Q.S. An-Nisa 1). Mereka tinggal bahagia di surga, menikmati segala kenikmatan tanpa lelah.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-badge"><i class="fas fa-ban"></i> Larangan</div>
+        <div class="timeline-content"><strong>Satu pohon terlarang</strong> — Allah melarang mereka mendekati satu pohon tertentu. Setan membisiki mereka agar tergoda: "Dengan pohon ini kalian akan jadi malaikat dan kekal."</div>
+      </div>
+    </div>
+
+    <!-- Kesalahan dan taubat -->
+    <h2 id="dosa" class="section-title"><i class="fas fa-heart-broken"></i> Khilaf & pintu taubat</h2>
+    <div style="background: #faeedb; border-radius: 2rem; padding: 1.5rem; border: 2px solid #c09858;">
+      <p style="font-size: 1.2rem;"><i class="fas fa-apple-alt" style="color:#aa4f2e;"></i> Adam dan Hawa tergoda memakan buah pohon terlarang. Aurat mereka pun terbuka, dan mereka segera menyadari kesalahannya. <strong>Dengan rendah hati mereka berdoa:</strong></p>
+      <div style="background: #fff1d2; padding: 1.2rem; border-radius: 2rem; margin: 1rem 0; text-align: center; font-weight: bold;">
+        <i class="fas fa-dua" style="font-size:1.6rem;"></i>  “Ya Tuhan kami, kami telah menzalimi diri kami sendiri. Jika Engkau tidak mengampuni kami dan memberi rahmat kepada kami, niscaya kami termasuk orang-orang yang rugi.” (QS Al-A’raf 23)
+      </div>
+      <p>Allah menerima taubat Adam. Sungguh, Dia Maha Penerima Taubat lagi Maha Penyayang.</p>
+    </div>
+
+    <!-- Turun ke bumi -->
+    <h2 id="bumi" class="section-title"><i class="fas fa-earth-asia"></i> Kehidupan di bumi</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.8rem; align-items: center;">
+      <div style="flex: 1; min-width: 200px;">
+        <ul style="list-style: none; font-size: 1.2rem;">
+          <li><i class="fas fa-map-pin" style="color:#906c3b;"></i> Turun di India atau wilayah bumi yang berbeda (pendapat ulama).</li>
+          <li><i class="fas fa-hand-holding-heart"></i> Bertemu kembali dengan Hawa di Arafah.</li>
+          <li><i class="fas fa-child"></i> Melahirkan anak-anak kembar dan memulai keturunan manusia.</li>
+          <li><i class="fas fa-book"></i> Menjadi nabi pertama yang mengajarkan tauhid dan bercocok tanam.</li>
+        </ul>
+      </div>
+      <div style="flex: 0 0 120px; text-align: center; background: #c5b18b; border-radius: 60px; padding: 1rem; color: #2b3e1e;">
+        <i class="fas fa-male" style="font-size: 3rem;"></i>
+        <i class="fas fa-female" style="font-size: 3rem;"></i>
+        <p>Adam & Hawa</p>
+      </div>
+    </div>
+
+    <!-- Hikmah dan pelajaran -->
+    <h2 id="hikmah" class="section-title"><i class="fas fa-lightbulb"></i> Hikmah kisah Nabi Adam</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3><i class="fas fa-star"></i> Kemuliaan manusia</h3>
+        <p>Manusia diberi potensi ilmu dan akal. Allah mengajarkan Adam seluruh nama (benda/fungsi) yang tidak diketahui malaikat.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-hands-helping"></i> Taubat</h3>
+        <p>Setiap anak Adam pernah berbuat salah, sebaik-baik yang bersalah adalah yang segera bertaubat.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-shield-alt"></i> Musuh nyata</h3>
+        <p>Setan adalah musuh yang jelas. Kisah Adam mengingatkan kita agar tidak mengikuti langkah setan.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-hand-holding-heart"></i> Kasih sayang Allah</h3>
+        <p>Allah menetapkan risalah dan kenabian. Adam adalah nabi pertama yang menerima wahyu dan syariat sederhana.</p>
+      </div>
+    </div>
+
+    <!-- garis hias -->
+    <div class="motif-line"></div>
+
+    <!-- Fakta / catatan kaki islami -->
+    <div style="background: #ccba99; border-radius: 30px; padding: 1.8rem; color: #192013;">
+      <i class="fas fa-history" style="margin-right: 12px;"></i> <strong>Kisah dalam Islam, Kristen, dan Yahudi:</strong> Adam dihormati sebagai manusia pertama dan nabi. Dalam Islam, ia disebut <strong>Abu al-Basyar</strong> (bapak manusia). Tinggi badannya disebut 60 hasta (hadits shahih), namun setelah turun ke bumi perlahan berkurang. Wallahu a'lam.
+    </div>
+
+  </div> <!-- akhir konten -->
+
+  <!-- footer -->
+  <div class="footer">
+    <p><i class="fas fa-feather"></i> Website tentang Nabi Adam — manusia pertama, khalifah, dan kekasih Allah <i class="fas fa-feather"></i></p>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">Inspirasi dari Al-Qur’an dan hadits shahih. Disusun dengan cinta <i class="fas fa-heart" style="color:#f9b283;"></i> untuk generasi penuntut ilmu.</p>
+    <p>📖 QS. Al-Baqarah: 30-38, QS. Al-A’raf: 11-25, QS. Thaha: 115-123</p>
+    <p><a href="#">kembali ke atas</a> ⬆️</p>
+  </div>
+
+</div> <!-- penutup container -->
+</body>
+</html>
